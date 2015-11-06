@@ -1,5 +1,6 @@
 class Link < ActiveRecord::Base
   belongs_to :user
+  validates :full_url, presence: true
 
   after_create :generete_short_url
 

@@ -1,11 +1,13 @@
-<h1>Hello, <%= current_user.login %></h1>
-<%= link_to 'Sign out', signout_path, method: 'delete' %>
-<%= form_for (@link) do |f| %>
-  <%= f.label :full_url, "Enter your HTTP address" %>
-  <%= f.text_field :full_url %>
-
-  <%= f.submit "Shorten it!" %>
-<% end %>
+<div class="row">
+  <h1>Hello, <%= current_user.login %></h1>
+  <%= form_for (@link) do |f| %>
+    <div class="form-group">
+      <%= f.label :full_url, "Enter your HTTP address" %>
+      <%= f.text_field :full_url, class: "form-control" %>
+    </div>
+    <%= f.submit "Shorten it!", class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>
 
 <hr>
 <h2>All links</h2>
@@ -17,3 +19,4 @@
     <%= link_to_if(!link.visited, "#{get_base_url}#{link.short_url}", "#{get_base_url}#{link.short_url}") %>
   <% end %>
 <% end %>
+</div>

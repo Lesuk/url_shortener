@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "URL-shortener", root_path, id: "logo", class: "navbar-brand" %>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <% if signed_in? %>
+        <li id="fat-menu" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to current_user do %>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile 
+              <% end %>
+            </li>
+            
+            <li>
+              <%= link_to signout_path, method: 'delete' do %>
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sign out 
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
