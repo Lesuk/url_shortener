@@ -1,0 +1,19 @@
+<h1>Hello, <%= current_user.login %></h1>
+<%= link_to 'Sign out', signout_path, method: 'delete' %>
+<%= form_for (@link) do |f| %>
+  <%= f.label :full_url, "Enter your HTTP address" %>
+  <%= f.text_field :full_url %>
+
+  <%= f.submit "Shorten it!" %>
+<% end %>
+
+<hr>
+<h2>All links</h2>
+<% if @links.empty? %>
+  <p>Sorry, you haven't shorter links</p>
+<% else %>
+  <% @links.each do |link| %>
+    <hr>
+    <%= link_to_if(!link.visited, "#{get_base_url}#{link.short_url}", "#{get_base_url}#{link.short_url}") %>
+  <% end %>
+<% end %>

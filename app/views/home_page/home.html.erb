@@ -1,0 +1,6 @@
+<h1>HomePage#home</h1>
+<% if signed_in? %>
+  <%= link_to "Visit profile", current_user %>
+<% else %>
+  <h1>Hello <%= link_to 'Log in', login_path %></h1>
+<% end %>
