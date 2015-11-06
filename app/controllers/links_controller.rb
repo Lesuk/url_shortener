@@ -14,10 +14,10 @@ class LinksController < ApplicationController
 
   def show
     if params[:short_url]
-      @link = Link.find_by(short_url: params[:short_url])
-      redirect_to @link.full_url
+      # @link = Link.find_by(short_url: params[:short_url]) @link already is
       @link.visited = true
       @link.save
+      redirect_to @link.full_url
     end
   end
 
@@ -29,7 +29,7 @@ class LinksController < ApplicationController
 
     def ckeck_link
       @link = Link.find_by(short_url: params[:short_url])
-      unless !@link.visited?
+      if @link.visited
         flash[:warning] = "Sorry, but you can't use this link, because this one was visited."
         redirect_to current_user
       end

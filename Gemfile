@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+# ruby '2.0.0'
 
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass'
@@ -9,9 +9,10 @@ gem 'will_paginate', '3.0.6'
 gem 'will_paginate-bootstrap'
 gem "paperclip", "~> 4.2"
 gem 'sprockets', '2.11.0'
+gem 'mysql2', "~> 0.3.10"
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
+  # gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.14.0.rc1'
 end
 
